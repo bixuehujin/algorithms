@@ -59,7 +59,7 @@ int partition2(char input[], int left, int right) {
 int partition3(char input[], int left, int right) {
 	// j 作为开路先锋，找寻比小于等于 pivot 的元素，然后再与 i 进行交换，却表 i 坐在元素比 pivot 小
 	int i = left -1,  j;
-	int p = input[right];
+	char p = input[right];
 
 	for(j = left; j < right; j ++) {
 		if(input[j] <= p) {
