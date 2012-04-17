@@ -55,6 +55,7 @@ int calc_time(int num, int power, int(*power_func)(int, int)) {
 	return end.tv_usec - start.tv_usec;
 }
 
+
 int main(int argc, char **argv) {
 
 	printf("常规方法使用时间:%d 微秒\n", calc_time(2, 30, power1));
