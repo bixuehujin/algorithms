@@ -1,6 +1,7 @@
 /*
  * power.c
- * compute the power of a number.
+ * compute the power of a number in different strategy.
+ * NOTE: this progrom only works fine in Unix like system.
  *  Created on: 2012-4-12
  *      Author: hujin
  */
@@ -52,7 +53,7 @@ int calc_time(int num, int power, int(*power_func)(int, int)) {
 		(*power_func)(num, power);
 	}
 	gettimeofday(&end, NULL);
-	return end.tv_usec - start.tv_usec;
+	return end.tv_usec + 1000000 * end.tv_sec - (start.tv_usec + start.tv_sec * 1000000);
 }
 
 
