@@ -16,17 +16,17 @@ typedef struct _heap{
 	char * data;
 }heap_t;
 
+#define heap_parent(i) (i >> 1)
+#define heap_left(i) (i << 1)
+#define heap_right(i) ((i << 1) + 1)
 
 heap_t * heap_new();
-
-heap_t * heap_sort(heap_t * heap);
-
+void heap_build_max_heap(heap_t * heap);
+void heap_max_heapify(heap_t * heap , int i);
+void heap_sort(heap_t * heap);
 heap_t * heap_ctor(heap_t * heap);
-
 void heap_append(heap_t * heap, char a);
-
 void heap_ajust(heap_t * heap);
-
 void heap_free(heap_t * heap);
 
 #endif /* HSORT_H_ */
