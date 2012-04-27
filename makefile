@@ -1,10 +1,11 @@
 CC = gcc
+BUILD_PATH=build
 CFLAGS = -Wall -O0 -g -std=c99
 SOURCES = $(wildcard *.c)
 OBJS = $(patsubst %.c,%.o,$(SOURCES))
-EXES = test_qsort test_bigint matrix power power2 heap_test binary_search string_test
+EXES = sort_test test_bigint matrix power power2 heap_test binary_search_test string_test
 $(EXES):$(OBJS)
-	$(CC) -o test_qsort test_qsort.o qsort.o
+	$(CC) -o sort_test sort_test.o qsort.o merge_sort.o
 	$(CC) -o test_bigint test_bigint.o bigint2.o
 	$(CC) -o power power.o
 	$(CC) -o power2 power2.o
