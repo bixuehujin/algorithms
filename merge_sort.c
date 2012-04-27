@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <malloc.h>
+#include <string.h>
 
 #define swap(a, b) \
 { \
@@ -23,7 +24,7 @@ void merge(char * arr, int start,int mid, int end) {
 			swap(arr[start], arr[end]);
 		}
 	}else {
-		int len = end - start + 1; // The len should be end - start + 1
+		int len = end - start + 1; //NOTICE: The len should be end - start + 1 .
 		char * tmp = malloc(sizeof(char) * len);
 		int i = start, j = mid + 1, k = 0;
 		while(i <= mid && j <= end) {
