@@ -12,7 +12,7 @@
 
 typedef struct _slist_node {
 	struct _slist_node * next;
-	char data[1];/*should always be the last element.*/
+	char data[0];/*Needs to always be the last in the struct.*/
 }slist_node_t;
 
 typedef void (*slist_dtor_func_t)(void * data);

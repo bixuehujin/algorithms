@@ -30,7 +30,7 @@ slist_t * _slist_new(int size, slist_dtor_func_t dtor) {
 
 
 int slist_append(slist_t * list, void * data) {
-	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size - 1);
+	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
 	if(!tmp) return 0;
 
 	tmp->next = NULL;
@@ -51,7 +51,7 @@ int slist_append(slist_t * list, void * data) {
 
 
 int slist_prepend(slist_t * list, void * data) {
-	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size - 1);
+	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
 	if(!tmp) return 0;
 
 	tmp->next = list->head;
