@@ -56,5 +56,9 @@ void slist_clear(slist_t * list);
 	slist_append(list, &tmp);\
 }
 
+void slist_string_dtor_func(void * data) {
+	char ** d = (char **)data;
+	free(*d);
+}
 
 #endif /* SLIST_H_ */
