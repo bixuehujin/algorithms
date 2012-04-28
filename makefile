@@ -12,7 +12,7 @@ $(EXES):$(OBJS)
 	$(CC) -o matrix matrix.o
 	$(CC) -o heap_test heap_test.o hsort.o
 	$(CC) -o binary_search_test binary_search.o binary_search_test.o
-	$(CC) -o string_test string_test.o bitmap.o string.o
+	$(CC) -o string_test string_test.o bitmap.o strings.o
 	$(CC) -o slist_test slist_test.o slist.o
 	
 depends:$(SOURCES)

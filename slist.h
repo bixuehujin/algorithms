@@ -8,6 +8,7 @@
 #ifndef SLIST_H_
 #define SLIST_H_
 
+#include <string.h>
 #include <malloc.h>
 
 typedef struct _slist_node {
@@ -40,11 +41,20 @@ int slist_append(slist_t * list, void * data);
 int slist_prepend(slist_t * list, void * data);
 void slist_clear(slist_t * list);
 
-#define slist_appends(list, type ,salar) {\
+#define slist_append_ex(list, type ,salar) {\
 	type tmp = salar;\
 	slist_append(list, &tmp);\
 }
 
+#define slist_appendi(list, integer)    slist_append_ex(list, int, integer)
+#define slist_appendl(list, longval)    slist_append_ex(list, long, longval)
+#define slist_appendf(list, floatval)   slist_append_ex(list, float, floatval)
+#define slist_appendd(list, doubleval)  slist_append_ex(list, double, doubleval)
+
+#define slist_appends(list, str) {\
+	char * tmp = strdup(str);\
+	slist_append(list, &tmp);\
+}
 
 
 #endif /* SLIST_H_ */
