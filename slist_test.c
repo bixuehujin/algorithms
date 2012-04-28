@@ -15,7 +15,7 @@ void slist_print(void * data) {
 
 
 int main(int argc, char **argv) {
-	slist_t * slist = slist_new(char *, (slist_dtor_func_t)slist_string_dtor_func);
+	slist_t * slist = slist_new(string, slist_string_dtor_func);
 
 	slist_appends(slist, "hujin");
 	slist_appends(slist, "bixue");

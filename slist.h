@@ -10,15 +10,16 @@
 
 #include <string.h>
 #include <malloc.h>
+#include "types.h"
 
 typedef struct _slist_node {
 	struct _slist_node * next;
 	char data[0];/*Needs to always be the last in the struct.*/
 }slist_node_t;
 
-typedef void (*slist_dtor_func_t)(void * data);
+typedef void (*slist_dtor_func_t)(pointer data);
 typedef int (*slist_compare_func_t)(slist_node_t * , slist_node_t *);
-typedef void (*slist_apply_func_t)(void *);
+typedef void (*slist_apply_func_t)(pointer);
 
 typedef struct _slist{
 	slist_node_t * head;
@@ -37,8 +38,8 @@ typedef struct _slist{
 
 slist_t * _slist_new(int size, slist_dtor_func_t dtor);
 void slist_apply(slist_t * list, slist_apply_func_t apply_func);
-int slist_append(slist_t * list, void * data);
-int slist_prepend(slist_t * list, void * data);
+int slist_append(slist_t * list, pointer data);
+int slist_prepend(slist_t * list, pointer data);
 void slist_clear(slist_t * list);
 
 #define slist_append_ex(list, type ,salar) {\
@@ -56,9 +57,6 @@ void slist_clear(slist_t * list);
 	slist_append(list, &tmp);\
 }
 
-void slist_string_dtor_func(void * data) {
-	char ** d = (char **)data;
-	free(*d);
-}
+void slist_string_dtor_func(pointer data);
 
 #endif /* SLIST_H_ */

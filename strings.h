@@ -7,7 +7,8 @@
 
 #ifndef STRING_H_
 #define STRING_H_
+#include "types.h"
 
-int string_has_chars_of(char * str, char * substr);
+int string_has_chars_of(string str, string substr);
 
 #endif /* STRING_H_ */

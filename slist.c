@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <malloc.h>
 #include <string.h>
+#include "types.h"
 #include "slist.h"
 
 
@@ -29,7 +30,7 @@ slist_t * _slist_new(int size, slist_dtor_func_t dtor) {
 
 
 
-int slist_append(slist_t * list, void * data) {
+int slist_append(slist_t * list, pointer data) {
 	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
 	if(!tmp) return 0;
 
@@ -50,7 +51,7 @@ int slist_append(slist_t * list, void * data) {
 
 
 
-int slist_prepend(slist_t * list, void * data) {
+int slist_prepend(slist_t * list, pointer data) {
 	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
 	if(!tmp) return 0;
 
@@ -89,8 +90,10 @@ void slist_clear(slist_t * list) {
 }
 
 
-
-
+void slist_string_dtor_func(pointer data) {
+	string * d = (string *)data;
+	free(*d);
+}
 
 
 
