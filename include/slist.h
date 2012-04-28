@@ -38,8 +38,8 @@ typedef struct _slist{
 
 slist_t * _slist_new(int size, slist_dtor_func_t dtor);
 void slist_apply(slist_t * list, slist_apply_func_t apply_func);
-int slist_append(slist_t * list, pointer data);
-int slist_prepend(slist_t * list, pointer data);
+bool slist_append(slist_t * list, pointer data);
+bool slist_prepend(slist_t * list, pointer data);
 void slist_clear(slist_t * list);
 
 #define slist_append_ex(list, type ,salar) {\
@@ -53,7 +53,7 @@ void slist_clear(slist_t * list);
 #define slist_appendd(list, doubleval)  slist_append_ex(list, double, doubleval)
 
 #define slist_appends(list, str) {\
-	char * tmp = strdup(str);\
+	string tmp = strdup(str);\
 	slist_append(list, &tmp);\
 }
 

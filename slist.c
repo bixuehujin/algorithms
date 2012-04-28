@@ -30,9 +30,9 @@ slist_t * _slist_new(int size, slist_dtor_func_t dtor) {
 
 
 
-int slist_append(slist_t * list, pointer data) {
+bool slist_append(slist_t * list, pointer data) {
 	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
-	if(!tmp) return 0;
+	if(!tmp) return false;
 
 	tmp->next = NULL;
 	memcpy(tmp->data, data, list->size);
@@ -46,14 +46,14 @@ int slist_append(slist_t * list, pointer data) {
 	list->tail = tmp;
 	list->length ++;
 
-	return 1;
+	return true;
 }
 
 
 
-int slist_prepend(slist_t * list, pointer data) {
+bool slist_prepend(slist_t * list, pointer data) {
 	slist_node_t * tmp = malloc(sizeof(slist_node_t) + list->size);
-	if(!tmp) return 0;
+	if(!tmp) return false;
 
 	tmp->next = list->head;
 	memcpy(tmp->data, data, list->size);
@@ -64,7 +64,7 @@ int slist_prepend(slist_t * list, pointer data) {
 
 	list->head = tmp;
 	list->length ++;
-	return 1;
+	return true;
 }
 
 

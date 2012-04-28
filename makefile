@@ -1,6 +1,7 @@
 CC = gcc
-BUILD_PATH=build
-INCLUDE = -I/usr/include
+BUILD_PATH=build 
+vpath %.h include   
+INCLUDE = -I/usr/include -Iinclude
 CFLAGS = -Wall -O0 -g -std=c99 $(INCLUDE)
 SOURCES = $(wildcard *.c)
 OBJS = $(patsubst %.c,%.o,$(SOURCES))
@@ -15,16 +16,23 @@ $(EXES):$(OBJS)
 	$(CC) -o binary_search_test binary_search.o binary_search_test.o
 	$(CC) -o string_test string_test.o bitmap.o strings.o
 	$(CC) -o slist_test slist_test.o slist.o
-	
-depends:$(SOURCES)
-	$(CC) -M $(SOURCES) > depends 
 
-all:$(OBJS) $(EXES)
-$(OBJS): %.o:%.c
+#include $(subst .c,.d,$(SOURCES))
+	
+#%.d:%.c
+#	$(CC) -M  $(INCLUDE) $<  > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+	 
+	
+
+
+all: $(EXES)
+%.o:%.c
 	@echo Compiling $< to $@ ......
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	rm -f  $(EXES)
-	find . -name \*.o | xargs rm -f
+	find . -name '*.[od]' | xargs rm -f
 .PHONY: clean
