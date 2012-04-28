@@ -9,8 +9,8 @@
 #include <string.h>
 #include "slist.h"
 
-void slist_print(void * data) {
-	printf("%s\n", *(char **)data);
+void slist_print(pointer data) {
+	printf("%s\n", *(string *)data);
 }
 
 

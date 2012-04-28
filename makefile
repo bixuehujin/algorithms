@@ -1,6 +1,7 @@
 CC = gcc
 BUILD_PATH=build
-CFLAGS = -Wall -O0 -g -std=c99
+INCLUDE = -I/usr/include
+CFLAGS = -Wall -O0 -g -std=c99 $(INCLUDE)
 SOURCES = $(wildcard *.c)
 OBJS = $(patsubst %.c,%.o,$(SOURCES))
 EXES = sort_test test_bigint matrix power power2 heap_test binary_search_test string_test slist_test
