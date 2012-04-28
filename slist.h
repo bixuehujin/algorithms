@@ -40,7 +40,7 @@ int slist_append(slist_t * list, void * data);
 int slist_prepend(slist_t * list, void * data);
 void slist_clear(slist_t * list);
 
-#define slist_appends(list,type ,salar) {\
+#define slist_appends(list, type ,salar) {\
 	type tmp = salar;\
 	slist_append(list, &tmp);\
 }
