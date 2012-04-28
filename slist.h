@@ -16,7 +16,7 @@ typedef struct _slist_node {
 }slist_node_t;
 
 typedef void (*slist_dtor_func_t)(void * data);
-typedef int (*slist_compare_func_t)(void * , void *);
+typedef int (*slist_compare_func_t)(slist_node_t * , slist_node_t *);
 typedef void (*slist_apply_func_t)(void *);
 
 typedef struct _slist{
