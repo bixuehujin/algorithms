@@ -17,6 +17,8 @@ typedef struct _list_node {
 }list_node_t;
 
 typedef void (*list_dtor_func_t)(pointer data);
+typedef void (*list_apply_func_t)(pointer node);
+typedef int (*list_compare_func_t)(pointer, pointer);
 
 typedef struct _list{
 	list_node_t * head;
@@ -30,8 +32,8 @@ typedef struct _list{
 
 list_t * _list_new(int size, list_dtor_func_t dtor);
 #define list_new(type, dtor) _list_new(sizeof(type), dtor)
-void list_append(list_t * list, pointer data);
-void list_prepend(list_t * list, pointer data);
+bool list_append(list_t * list, pointer data);
+bool list_prepend(list_t * list, pointer data);
 void list_clear(list_t * list);
 void list_destroy(list_t * list);
 
