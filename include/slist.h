@@ -54,7 +54,7 @@ void slist_reverse_from_node(slist_node_t ** node);
 #define slist_appendd(list, doubleval)  slist_append_ex(list, double, doubleval)
 
 #define slist_appends(list, str) {\
-	string tmp = strdup(str);\
+	string tmp = (string)strdup(str);\
 	slist_append(list, &tmp);\
 }
 
