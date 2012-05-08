@@ -89,6 +89,28 @@ void slist_clear(slist_t * list) {
 	list->length = 0;
 }
 
+static void slist_print(pointer data) {
+	printf("node:%s\n", *(string *)data);
+}
+
+void slist_reverse_from_node(slist_node_t ** node) {
+
+	slist_node_t * left, *curr;
+	left = *node;
+	*node = NULL;//初始化一个空的单链表
+	while(left) {
+		curr = left;
+		left = left->next;//从剩余的节点中取出最前面的一个节点
+
+		curr->next = *node;//将取出节点的下一个节点设为新建立的单链表
+		*node = curr;//对新建单链表进行重新赋值，使其成为添加了当前节点的最新单链表
+	}
+}
+
+void slist_reverse(slist_t * list) {
+	slist_reverse_from_node(&list->head);
+}
+
 
 void slist_string_dtor_func(pointer data) {
 	string * d = (string *)data;
@@ -96,7 +118,11 @@ void slist_string_dtor_func(pointer data) {
 }
 
 
-
+void slist_print_node(slist_node_t *node, slist_apply_func_t func) {
+	if(node) {
+		func(node->data);
+	}
+}
 
 
 

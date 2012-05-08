@@ -19,8 +19,14 @@ int main(int argc, char **argv) {
 
 	slist_appends(slist, "hujin");
 	slist_appends(slist, "bixue");
+	slist_appends(slist, "11111");
+	slist_appends(slist, "22222");
+	slist_appends(slist, "33333");
+	slist_appends(slist, "44444");
 	slist_apply(slist, (slist_apply_func_t)slist_print);
-
+	printf("\n");
+	slist_reverse(slist);
+	slist_apply(slist, (slist_apply_func_t)slist_print);
 	slist_destroy(slist);
 	return 0;
 }

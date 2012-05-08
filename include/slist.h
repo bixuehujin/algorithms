@@ -41,7 +41,8 @@ void slist_apply(slist_t * list, slist_apply_func_t apply_func);
 bool slist_append(slist_t * list, pointer data);
 bool slist_prepend(slist_t * list, pointer data);
 void slist_clear(slist_t * list);
-
+void slist_reverse(slist_t * list);
+void slist_reverse_from_node(slist_node_t ** node);
 #define slist_append_ex(list, type ,salar) {\
 	type tmp = salar;\
 	slist_append(list, &tmp);\
