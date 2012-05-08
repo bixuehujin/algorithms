@@ -17,6 +17,7 @@ $(EXES):$(OBJS)
 	$(CC) -o string_test string_test.o bitmap.o strings.o
 	$(CC) -o slist_test slist_test.o slist.o
 	$(CC) -o list_test list_test.o list.o
+	$(CC) -o hash_test hash_test.o hash_table.o
 
 #include $(subst .c,.d,$(SOURCES))
 	

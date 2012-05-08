@@ -14,5 +14,8 @@ typedef enum{
 	false,
 	true
 }bool;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+typedef unsigned char uint8;
 
 #endif /* TYPES_H_ */
