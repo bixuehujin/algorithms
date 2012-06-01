@@ -30,6 +30,7 @@ int quick_partition(int arr[], int l, int r) {
 	return i;
 }
 
+
 int _quick_select(int input[], int l, int r, int i) {
 
 	if(l == r) {
@@ -46,6 +47,12 @@ int _quick_select(int input[], int l, int r, int i) {
 	}
 }
 
+/**
+ * find the kth smallest element in a given array .
+ * @param int input[] The given array
+ * @param int l		  The lenght of given array
+ * @param int select_index
+ */
 int quick_select(int input[], int len, int select_index) {
 	return _quick_select(input, 0, len - 1, select_index);
 }
