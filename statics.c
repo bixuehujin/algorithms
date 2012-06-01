@@ -17,10 +17,9 @@
  *
  */
 int quick_partition(int arr[], int l, int r) {
-	printf("dkfdjk\n");
-	int i, j;
+	int i = l -  1, j = l;
 	int p = arr[r], tmp;
-	for(j = l, i = l - 1; i < r; i ++) {
+	for(; j < r; j ++) {
 		if(arr[j] < p) {
 			i ++;
 			swap(arr[i], arr[j]);
